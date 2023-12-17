@@ -20,7 +20,7 @@ const uint8_t BSSID_LIVINGROOM[6] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; /// Ma
 
 const uint8_t* ROUTER_TO_CONNECT_TO = BSSID_BEDROOM; /// Selects the router to connect to
 
-/// Create a token in Home Assistant to access its API. Be sure to add the word "Bearer " (with a space after it) in front of the token.
+/// Create a Long-Lived Access Token in Home Assistant to access its API. Be sure to add the word "Bearer " (with a space after it) in front of the token.
 const char* HOME_ASSISTANT_TOKEN = "Bearer kajhfsdklfasglksajglkasglaslglksadjglkjdsglkjagjdgbflbkdsfjdlsdfasdlkfhghasjfgeyrtaefhjgsdkjhfgsjfgkaekgfasjfbsdvnbbvzvbshdkgfgjsdalgdslkaglksjdasdgagagaga";
 const char* HOME_ASSISTANT_LIGHT_URL = "http://192.168.1.7:80/api/states/light.examplelight"; /// Url of the Home Assistant API lights you want to use.
 
