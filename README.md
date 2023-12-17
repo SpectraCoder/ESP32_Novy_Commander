@@ -6,9 +6,9 @@ The ip address of the ESP32 shows a basic status web page with the ability to re
  
 ![ESP32 with a 433mhz transmitter soldered onto it](https://github.com/SpectraCoder/ESP32_Novy_Commander/blob/main/ESP32_Novy_Commander.jpg?raw=true)
 
-> For convenience, I soldered the 433mhz transmitter directly to the ESP32.
-> By setting pin 22 to HIGH, it powers the transmitter while pin 23 is used to send data.
-> The pin next to those is ground.
+For convenience, I soldered the XD-FST FS1000A 433mhz transmitter directly to the ESP32.
+By setting pin 22 to HIGH, it powers the transmitter while pin 23 is used to send data.
+The pin next to those is ground.
 
 ## Usage
 
