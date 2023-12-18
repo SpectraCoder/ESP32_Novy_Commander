@@ -112,15 +112,23 @@ void loop() {
 
     Serial.println(isKitchenLightsOn ? "The kitchen lights are on" : "The kitchen lights are off");
 
-    if (isKitchenLightsOn && !isNovyLightOn) {
-      if (kitchenLightBrightness > 200) {
+    if (isKitchenLightsOn && !isNovyLightOn) 
+    {
+
+      /// The Novy cooking hood lights always start up in full brightness. To dim them down, you need to press and hold the dim button.
+      /// It is possible to simulate that button hold by sending the LightOn signal multiple times in a row.
+      /// I decided against that, and just leave them off when the other kitchen lights are dimmed below the threshold. (e.g. at night)
+      /// Otherwise there would be a flash of light from the cooking hood before it dimmed down to a good level.
+      if (kitchenLightBrightness > 200) 
+      {
         LightOn();
         isNovyLightOn = true;
         Serial.println("Turned on Novy light");
       }
     }
 
-    if (!isKitchenLightsOn && isNovyLightOn) {
+    if (!isKitchenLightsOn && isNovyLightOn) 
+    {
       LightOff();
       isNovyLightOn = false;
       Serial.println("Turned off Novy light");
