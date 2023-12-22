@@ -17,6 +17,7 @@
 /// IMPORTANT! This file holds all credentials and settings.
 /// Make a copy of config.example.h and rename it to config.h to make this work with your own setup.
 #include "config.h"
+#include "favicon.h"
 
 bool isKitchenLightsOn = false;
 int kitchenLightBrightness = 0;
@@ -75,10 +76,12 @@ void ArduinoWifiUpdater() {
   ArduinoOTA.begin();
 }
 
-void startServer() {
+void startServer() 
+{
   server.stop();
   server.on("/", webpage);
   server.on("/reboot", reboot);
+  server.on("/favicon.ico", HTTP_GET, getFavicon);
   server.begin();
 }
 
@@ -195,6 +198,12 @@ String GetFriendlyRouterName()
   return routerName;
 }
 
+void getFavicon ()
+{
+  server.sendHeader("Content-Type", "image/x-icon");
+  server.send_P(200, "image/x-icon", (const char*)FAVICON, sizeof(FAVICON));
+}
+
 void webpage() {
   int rssi = WiFi.RSSI();
   int signalStrength = map(rssi, -100, -50, 0, 100);
@@ -209,6 +218,7 @@ void webpage() {
                 + R"(</title>
     <meta http-equiv="refresh" content=")"
                 + String(REFRESH_TIME / 1000) + R"(">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
       <style>
         body {
           background-color: #111111;          
