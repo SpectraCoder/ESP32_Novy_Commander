@@ -18,3 +18,6 @@ Change the contents of the file to your own needs.
 To be able to access the API of your Home Assistant, you will need to generate a [Long-Lived Access Token](https://www.home-assistant.io/docs/authentication/).
 Log in onto your Home Assistant web interface, and click on your profile name. There, on the bottom of the page, you can generate the token. Copy and paste it into the ***config.h*** file.
 
+# Case
+
+I also designed and 3D printed a case for the ESP32 to fit the 433mhz transmitter. You can find the .stl file in [***/Case***](https://github.com/SpectraCoder/ESP32_Novy_Commander/blob/main/Case/).
